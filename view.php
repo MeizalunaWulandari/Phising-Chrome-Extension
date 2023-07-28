@@ -5,12 +5,14 @@
 </head>
 <body>
     <h1>Data dari key.json</h1>
+    <center>
+        <input type="text" name="test" id="">
     <table border="1">
         <tr>
             <th>Key</th>
             <th>Page</th>
             <th>Name</th>
-            <th>Log ID</th>
+            <th>Client Time</th>
         </tr>
         <?php
         // Baca konten dari key.json
@@ -28,16 +30,20 @@
             die("Gagal membaca file JSON.");
         }
 
+        // Mem-balik urutan elemen dalam array $data
+        $data = array_reverse($data);
+
         // Loop untuk menampilkan data dalam tabel
         foreach ($data as $item) {
             echo '<tr>';
             echo '<td>' . $item['key'] . '</td>';
             echo '<td>' . $item['page'] . '</td>';
             echo '<td>' . $item['name'] . '</td>';
-            echo '<td>' . $item['log_id'] . '</td>';
+            echo '<td>' . $item['client_time'] . '</td>';
             echo '</tr>';
         }
         ?>
     </table>
+</center>
 </body>
 </html>

