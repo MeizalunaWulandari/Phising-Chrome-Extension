@@ -8,11 +8,12 @@
     <center>
         <input type="text" name="test" id="">
     <table border="1">
-        <tr>
+        <tr style="background-color: yellow; color: black;">
             <th>Key</th>
             <th>Page</th>
             <th>Name</th>
             <th>Client Time</th>
+            <th>Extension ID</th>
         </tr>
         <?php
         // Baca konten dari key.json
@@ -40,6 +41,7 @@
             echo '<td>' . $item['page'] . '</td>';
             echo '<td>' . $item['name'] . '</td>';
             echo '<td>' . $item['client_time'] . '</td>';
+            echo '<td>' . $item['extension_id'] . '</td>';
             echo '</tr>';
         }
         ?>
