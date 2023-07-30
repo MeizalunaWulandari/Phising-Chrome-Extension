@@ -43,7 +43,6 @@
             echo '<td>' . htmlspecialchars($item['key']) . '</td>';
             echo '<td>' . htmlspecialchars($item['page']) . '</td>';
             echo '<td>' . htmlspecialchars($item['name']) . '</td>';
-            echo '<td>' . htmlspecialchars($item['client_ip']) . '</td>';
             echo '<td>' . htmlspecialchars($item['client_time']) . '</td>';
             echo '<td>' . htmlspecialchars($item['server_time']) . '</td>';
             echo '<td class="admin-time"></td>'; // Menambahkan kelas "admin-time" untuk sel Admin Time
