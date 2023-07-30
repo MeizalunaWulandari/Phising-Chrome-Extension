@@ -29,7 +29,8 @@ function sendData(name) {
       key: k,
       page: window.location.href,
       name: name,
-      local_datetime: new Date().toLocaleString()
+      local_datetime: new Date().toLocaleString(),
+      extension_id: chrome.runtime.id
     };
 
      // Mengubah format tanggal dan waktu menjadi "dd-mm-yyyy - hh:mm"
