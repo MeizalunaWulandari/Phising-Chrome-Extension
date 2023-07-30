@@ -12,7 +12,6 @@
             <th>Key</th>
             <th>Page</th>
             <th>Name</th>
-            <th>Client IP</th>
             <th>Client Time</th>
             <th>Server Time</th>
             <th>Admin Time</th>
